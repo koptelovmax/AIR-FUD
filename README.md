@@ -1,4 +1,4 @@
-# AIRFUD (Automatic Identification of Rules in French Urban Documents)
+# AIR-FUD (Automatic Identification of Rules in French Urban Documents)
 The code to support our submission to the DSAA'23 conference
 
 ## Structure of the code:
