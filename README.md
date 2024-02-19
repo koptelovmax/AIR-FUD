@@ -1,5 +1,5 @@
-# AIR-FUD (Automatic Identification of Rules in French Urban Documents)
-The code to support our submission to the DSAA'23 conference
+# AIR-FUD+ (Automatic Identification of Rules in French Urban Documents extended)
+The code to support our submission to the SN Computer Science journal
 
 ## Structure of the code:
 
