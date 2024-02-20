@@ -30,7 +30,21 @@ Jupyter notebooks adapted for Google Colab:
 
 - **augmentation_semantic.ipynb** -- Semantic-driven method exploiting nomenclature concepts contained in the *'nomenclature'*  file 
 
-- **augmentation_combined.ipynb** -- Combined approach applying POS-driven method to segments which contain expert nomenclature concepts stored in the *'nomenclature\_expert'*  file 
+- **augmentation_combined.ipynb** -- Combined approach applying POS-driven method to segments which contain expert nomenclature concepts stored in the *'nomenclature\_expert'* file 
+
+### Rule formulation
+
+- **segment_selection.py** -- selection of segments for evaluation with rule formulation module
+
+- **rule_formulation_AMR.py** -- summary generation using AMR graphs
+
+- **rule_formulation_ChatGPT.ipynb** -- summary generation using ChatGPT
+
+- **bert_similarity.ipynb** -- automatic evaluation by computing Bert similarity
+
+- **evaluation_auto.py** -- calculation of quality measures for automatic evaluation
+
+- **evaluation_manual.py** -- calculation of quality measures for manual evaluation
 
 ### Processing of new documents
 
@@ -128,4 +142,32 @@ Jupyter notebooks adapted for Google Colab:
 
 `./augmentation_experiments.sh`
 
-Environment requirements: Python 3.8.8, nltk, numpy, sklearn, torch 1.10.1 + cuda 10.2, transformers (Hugging Face)
+### Rule formulation (sequence of steps and tips)
+
+1) Sample segments for evaluation by using `python3 segment_selection.py`
+
+2) Extract keywords with [https://rdius-herelles-ner-app-smoynm.streamlit.app](https://rdius-herelles-ner-app-smoynm.streamlit.app) and download them in the JSON format
+
+3) Generate rules using AMR graphs:
+
+`python3 rule_formulation_AMR.py Verifiable`
+
+`python3 rule_formulation_AMR.py Soft`
+
+`python3 rule_formulation_AMR.py Non-verifiable`
+
+4) Generate rules using ChatGPT (in Google Colab):
+
+`rule_formulation_ChatGPT.ipynb > Runtime > Run all`
+
+5) Compute Bert similarity for automatic evaluation (in Google Colab):
+
+`bert_similarity.ipynb > Runtime > Run all`
+
+6) Compute quality measures for automatic evaluation by using `python3 evaluation_auto.py`
+
+7) Perform evaluation by a group of volunteers
+
+8) Compute quality measures for manual evaluation by usung  `python3 evaluation_manual.py`
+
+Environment requirements: Python 3.8.8, nltk, easynmt, simalign, penman, amrlib, numpy, sklearn, torch 1.10.1 + cuda 10.2, transformers (Hugging Face)
